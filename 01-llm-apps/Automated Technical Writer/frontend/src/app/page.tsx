@@ -1,4 +1,6 @@
-import Link from "next/link";
+"use client";
+
+import { useRouter } from "next/navigation";
 
 const FEATURES = [
   {
@@ -54,6 +56,7 @@ const FEATURES = [
 const LANGUAGES = ["Python", "JavaScript", "TypeScript", "Go", "Java", "Rust"];
 
 export default function HomePage() {
+  const router = useRouter();
   return (
     <main className="relative overflow-hidden">
       {/* Background grid + gradient orbs */}
@@ -85,15 +88,15 @@ export default function HomePage() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-16">
-          <Link
-            href="/editor"
+          <button
             id="hero-cta-btn"
+            onClick={() => router.push("/editor")}
             className="px-8 py-4 rounded-xl bg-gradient-to-r from-violet-600 to-violet-500 text-white font-semibold text-lg
               hover:from-violet-500 hover:to-violet-400 transition-all shadow-2xl shadow-violet-500/30
               hover:shadow-violet-500/50 hover:-translate-y-1"
           >
             Start Writing for Free →
-          </Link>
+          </button>
           <a
             href="https://github.com/aniketpotabatti/GenAIHub/tree/main/01-llm-apps/Automated%20Technical%20Writer"
             target="_blank"
@@ -154,14 +157,14 @@ export default function HomePage() {
           <p className="relative text-white/50 text-lg mb-8 max-w-lg mx-auto">
             Paste your code, get a complete, accurate documentation suite in seconds.
           </p>
-          <Link
-            href="/editor"
+          <button
             id="bottom-cta-btn"
+            onClick={() => router.push("/editor")}
             className="inline-flex items-center gap-2 px-10 py-4 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 text-white font-semibold text-lg
               hover:from-violet-500 hover:to-cyan-500 transition-all shadow-2xl shadow-violet-500/30 hover:shadow-violet-500/50 hover:-translate-y-1"
           >
             Open Editor ✍️
-          </Link>
+          </button>
         </div>
       </section>
     </main>

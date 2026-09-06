@@ -14,11 +14,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0a0a0f]/90 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? "bg-[#0a0a0f]/90 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
+        : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
@@ -33,12 +32,6 @@ export default function Navbar() {
 
         {/* Nav links */}
         <div className="hidden md:flex items-center gap-6">
-          <Link
-            href="/editor"
-            className="text-sm text-white/60 hover:text-white/90 transition-colors"
-          >
-            Editor
-          </Link>
           <a
             href="https://github.com/aniketpotabatti/GenAIHub/tree/main/01-llm-apps/Automated%20Technical%20Writer"
             target="_blank"
@@ -50,12 +43,6 @@ export default function Navbar() {
             </svg>
             GitHub
           </a>
-          <Link
-            href="/editor"
-            className="px-4 py-2 text-sm font-medium rounded-lg bg-gradient-to-r from-violet-600 to-violet-500 text-white hover:from-violet-500 hover:to-violet-400 transition-all shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:-translate-y-0.5"
-          >
-            Start Writing →
-          </Link>
         </div>
       </div>
     </nav>

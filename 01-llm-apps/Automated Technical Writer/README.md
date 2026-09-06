@@ -1,29 +1,29 @@
-# 🧠 Automated Technical Writer
+# AutoWriter AI
 
 > AI-powered technical documentation generator — paste your code, get production-quality docs in seconds.
 
-![Tech Stack](https://img.shields.io/badge/Next.js-16-black?logo=next.js) ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi) ![LangChain](https://img.shields.io/badge/LangChain-0.3-1C3C3C?logo=langchain) ![Gemini](https://img.shields.io/badge/Gemini-2.5_Flash-4285F4?logo=google)
+![Nodejs](https://img.shields.io/badge/Next.js-16-black?logo=next.js) 
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi) 
+![LangChain](https://img.shields.io/badge/LangChain-0.3-1C3C3C?logo=langchain) 
+![Gemini](https://img.shields.io/badge/Gemini-2.5_Flash-4285F4?logo=google)
 
-##### Created: April 2025
+**Created:** April 2025
 
 ---
-
 
 ## Features
 
-- **Code-Aware Parsing** - Extracts functions, classes, imports, and docstrings via AST (never hallucinates API signatures)
-- **AI Doc Architect** - Gemini plans the full documentation structure before writing a single word
-- **Real-Time Streaming** - Watch documentation appear token by token via Server-Sent Events
-- **Multi-Language** - Python, JavaScript, TypeScript, Go, Java, Rust
-- **Multi-Format Export** - Download as Markdown (`.md`) or styled dark-mode HTML (`.html`)
-- **3-Panel Editor** - Code input · Doc plan · Live preview, all in one view
+- **Code-Aware Parsing** — Extracts functions, classes, imports, and docstrings via AST (never hallucinates API signatures)
+- **AI Doc Architect** — Gemini plans the full documentation structure before writing a single word
+- **Real-Time Streaming** — Watch documentation appear token by token via Server-Sent Events
+- **Multi-Language** — Python, JavaScript, TypeScript, Go, Java, Rust
+- **Multi-Format Export** — Download as Markdown (`.md`) or styled dark-mode HTML (`.html`)
+- **3-Panel Editor** — Code input · Doc plan · Live preview, all in one view
 
 ---
 
 
-
 ## Quick Start
-
 
 
 ### Prerequisites
@@ -70,7 +70,6 @@ npm run dev
 ```
 
 
-
 ### 4. Open the App
 
 Navigate to **[http://localhost:3000/editor](http://localhost:3000/editor)**, paste your code, and click **Parse & Analyze**.
@@ -83,7 +82,6 @@ docker-compose up
 ```
 
 ---
-
 
 
 ## Tech Stack
@@ -101,6 +99,33 @@ docker-compose up
 
 ---
 
+
+## Project Structure
+
+```
+automated-technical-writer/
+├── .env                      # input API key here
+├── .gitignore
+├── docker-compose.yml
+├── package.json              # Root proxy scripts (npm run dev → frontend)
+│
+├── backend/                  # FastAPI application
+│   ├── app/
+│   │   ├── api/routes/       # parse, plan, write, export endpoints
+│   │   ├── core/             # Config (pydantic-settings)
+│   │   ├── llm/              # LangChain chains + prompts
+│   │   ├── models/           # Pydantic schemas
+│   │   └── services/         # Code parser (regex AST)
+│   ├── Dockerfile
+│   └── requirements.txt
+│
+└── frontend/                 # Next.js application
+    └── src/
+        ├── app/              # Pages (/, /editor)
+        ├── components/       # CodeUploader, DocArchitecture, StreamingOutput, ExportButton
+        └── lib/              # API client (api.ts)
+```
+
 ## 🤝 Contributing
 
 1. Fork the repo
@@ -109,5 +134,10 @@ docker-compose up
 4. Push and open a Pull Request
 
 ---
-### License
-   - MIT License
+
+
+
+## License
+
+```
+- MIT license
